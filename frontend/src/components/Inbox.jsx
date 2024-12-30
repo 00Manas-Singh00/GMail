@@ -10,7 +10,6 @@ import {
 } from "react-icons/md";
 import { PiTag } from "react-icons/pi";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import Email from "./Email";
 import Emails from "./Emails";
 
 const mailType = [
