@@ -44,7 +44,7 @@ const NavBar = () => {
         <div className="p-2 rounded-full hover:bg-gray-200 cursor-pointer">
           <PiDotsNineBold size={"24px"} />
         </div>
-        <div className="border-4 border-gray-50 hover:border-gray-400 hover:duration-500 p-1 rounded-full">
+        <div className="border-2 border-gray-50 hover:border-gray-400 hover:duration-500 p-1 rounded-full">
           <Avatar
             src="https://cdn.pixabay.com/photo/2021/08/11/11/15/man-6538205_640.jpg"
             size="40"
