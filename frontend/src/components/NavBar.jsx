@@ -34,7 +34,7 @@ const NavBar = () => {
           </div>
         </div>
       </div>
-      <div className="w-[30%] flex items-center justify-end gap-3">
+      <div className="w-[20%] flex items-center justify-end gap-3">
         <div className="p-2 rounded-full hover:bg-gray-200 cursor-pointer">
           <CiCircleQuestion size={"24px"} />
         </div>

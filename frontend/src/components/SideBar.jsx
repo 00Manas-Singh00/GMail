@@ -33,7 +33,7 @@ const sidebarItems = [
 
 const SideBar = () => {
   return (
-    <div className="w-[18%]">
+    <div className="w-[18%] ">
       <div className="p-3 ">
         <button className="flex items-center gap-2 text-sm font-semibold p-4 rounded-2xl bg-[#C2E7FF] hover:shadow-md hover:duration-400">
           <RiPencilLine size={"26px"} />
