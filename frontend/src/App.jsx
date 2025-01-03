@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar";
 // import SideBar from "./components/SideBar";
 import Body from "./components/Body";
 import Mail from "./components/Mail";
+import ComposeMail from "./components/ComposeMail";
 
 const appRouter = createBrowserRouter([
   {
@@ -29,6 +30,7 @@ function App() {
     <div className="h-screen bg-[#F6F8FC]">
       <NavBar />
       <RouterProvider router={appRouter} />
+      <ComposeMail />
     </div>
   );
 }
