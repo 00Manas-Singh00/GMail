@@ -1,9 +1,18 @@
 import { FaRegStar } from "react-icons/fa";
 import { MdCheckBoxOutlineBlank } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const Email = () => {
+  const navigate = useNavigate();
+  const openMail = () => {
+    navigate("/mail/1234");
+  };
+
   return (
-    <div className="flex items-center justify-between p-3 border-b border-gray-200 text-sm cursor-pointer hover:shadow-md">
+    <div
+      onClick={openMail}
+      className="flex items-center justify-between p-3 border-b border-gray-200 text-sm cursor-pointer hover:shadow-md"
+    >
       <div className="flex items-center gap-2">
         <div className="text-gray-400">
           <MdCheckBoxOutlineBlank size={"20px"} />

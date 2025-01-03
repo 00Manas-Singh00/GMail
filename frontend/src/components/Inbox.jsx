@@ -26,7 +26,7 @@ const mailType = [
     text: "Social",
   },
   {
-    icon: <MdOutlineInfo size={"20px"} />,
+    icon: <MdOutlineInfo size={"20px"} />, 
     text: "Updates",
   },
 ];
