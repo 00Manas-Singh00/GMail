@@ -2,6 +2,8 @@ import { useState } from "react";
 import { IoIosClose } from "react-icons/io";
 import { MdMinimize } from "react-icons/md";
 import { RiExpandDiagonalLine } from "react-icons/ri";
+import { useDispatch, useSelector } from "react-redux";
+import { setOpen } from "../redux/appSlice";
 
 const ComposeMail = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -10,13 +12,17 @@ const ComposeMail = () => {
     setIsExpanded(!isExpanded);
   };
 
+  const open = useSelector((state) => state.app.open);
+
+  const dispatch = useDispatch();
+
   return (
     <div
       className={`absolute  bg-white max-w-6xl shadow-xl shadow-gray-600 rounded-t-md ${
         isExpanded
-          ? "w-[70%] h-[80vh] left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] rounded-md"
+          ? "w-[70%] h-[80vh] left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] rounded-md`"
           : "w-[30%] right-20 bottom-0"
-      }`}
+      } ${open ? "block" : "hidden"}`}
     >
       <div className=" rounded-t-md flex items-center justify-between bg-[#F2F6FC] px-3 py-2">
         <h1 className="font-medium text-sm text-zinc-700">New Message</h1>
@@ -30,7 +36,10 @@ const ComposeMail = () => {
           >
             <RiExpandDiagonalLine size={"18px"} />
           </div>
-          <div className="hover:bg-gray-300 text-gray-700">
+          <div
+            onClick={() => dispatch(setOpen(false))}
+            className="hover:bg-gray-300 text-gray-700"
+          >
             <IoIosClose size={"18px"} />
           </div>
         </div>
