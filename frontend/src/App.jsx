@@ -7,6 +7,8 @@ import NavBar from "./components/NavBar";
 import Body from "./components/Body";
 import Mail from "./components/Mail";
 import ComposeMail from "./components/ComposeMail";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
 
 const appRouter = createBrowserRouter([
   {
@@ -22,6 +24,14 @@ const appRouter = createBrowserRouter([
         element: <Mail />,
       },
     ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/signup",
+    element: <SignUp />,
   },
 ]);
 
