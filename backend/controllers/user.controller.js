@@ -1,4 +1,4 @@
-import { User } from "../models/user.model";
+import { User } from "../models/user.model.js";
 import jwt from "jsonwebtoken";
 
 export const register = async (req, res) => {
@@ -12,17 +12,17 @@ export const register = async (req, res) => {
     const user = await User.findOne({ email });
 
     if (user)
-      return res
-        .status(400)
-        .json({
-          message: "User already exists with this email",
-          success: false,
-        });
+      return res.status(400).json({
+        message: "User already exists with this email",
+        success: false,
+      });
 
+    const profilePhoto = "https://avatar.iran.liara.run/public/boy";
     await User.create({
       fullname,
       email,
       password: await bcrypt.hash(password, 10),
+      profilePhoto,
     });
 
     return res
@@ -67,7 +67,22 @@ export const login = async (req, res) => {
         maxAge: 1 * 24 * 60 * 60 * 1000,
         httpOnly: true,
         sameSite: "strict",
+      })
+      .json({
+        message: `${user.fullname} logged in successfully. `,
+        user,
       });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const logout = async (req, res) => {
+  try {
+    return res
+      .status(200)
+      .cookie("token", "", { maxAge: 0 })
+      .json({ message: "Logged out successfully" });
   } catch (error) {
     console.log(error);
   }

@@ -2,7 +2,8 @@ import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./db/connectDB.js";
 import cookieParser from "cookie-parser";
-import userRoute from "./routes/user.route.js"
+import userRoute from "./routes/user.route.js";
+import cors from "cors";
 
 dotenv.config({});
 
@@ -23,13 +24,7 @@ const corseOptions = {
 app.use(cors(corseOptions));
 
 //routes
-app.use("/api/v1/user",userRoute)
-
-app.get("/home", (req, res) => {
-  return res
-    .status(200)
-    .json({ message: "I am coming from backend", success: true });
-});
+app.use("/api/v1/user", userRoute);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
