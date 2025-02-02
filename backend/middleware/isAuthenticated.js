@@ -1,8 +1,8 @@
 import jwt from "jsonwebtoken";
 
-const isAuthenticated = async (requestAnimationFrame, resizeBy, next) => {
+const isAuthenticated = async (req, res, next) => {
   try {
-    const token = requestAnimationFrame.cookies.token;
+    const token = req.cookies.token;
 
     if (!token)
       return res.status(401).json({ message: "User not authenticated" });
@@ -15,3 +15,5 @@ const isAuthenticated = async (requestAnimationFrame, resizeBy, next) => {
     console.log(error);
   }
 };
+
+export default isAuthenticated;

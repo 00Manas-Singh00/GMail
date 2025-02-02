@@ -1,3 +1,5 @@
+import { Email } from "../models/email.model.js";
+
 export const createEmail = async (req, res) => {
   try {
     const userId = req.id;
@@ -13,9 +15,36 @@ export const createEmail = async (req, res) => {
       to,
       subject,
       message,
-      userId
+      userId,
     });
-    return res.status(201).json({ message: "Email sent successfully", success: true });
+    return res.status(201).json({ email });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const deleteEmail = async (req, res) => {
+  try {
+    const emailId = req.params.id;
+    if (!emailId)
+      return res.status(400).json({ message: "Email id is required" });
+
+    const email = await Email.findOneAndDelete(emailId);
+
+    if (!email) return res.status(404).json({ message: "Email not found" });
+
+    return res.status(200).json({ message: "Deleted successfully" });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getAllEmailById = async (req, res) => {
+  try {
+    const userId = req.id;
+    const emails = await Email.find({ userId });
+
+    return res.status(200).json({ emails });
   } catch (error) {
     console.log(error);
   }
