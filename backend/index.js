@@ -4,6 +4,7 @@ import connectDB from "./db/connectDB.js";
 import cookieParser from "cookie-parser";
 import userRoute from "./routes/user.route.js";
 import cors from "cors";
+import emailRoute from "./routes/email.route.js";
 
 dotenv.config({});
 
@@ -25,6 +26,7 @@ app.use(cors(corseOptions));
 
 //routes
 app.use("/api/v1/user", userRoute);
+app.use("/api/v1/email", emailRoute);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
