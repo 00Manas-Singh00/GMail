@@ -9,6 +9,7 @@ import Mail from "./components/Mail";
 import ComposeMail from "./components/ComposeMail";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
+import { Toaster } from "react-hot-toast";
 
 const appRouter = createBrowserRouter([
   {
@@ -41,6 +42,7 @@ function App() {
       <NavBar />
       <RouterProvider router={appRouter} />
       <ComposeMail />
+      <Toaster />
     </div>
   );
 }
